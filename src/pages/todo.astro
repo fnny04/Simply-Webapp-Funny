@@ -3,5 +3,25 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Todo">
-  <h1>Ini Todo App</h1>
+  <div class="flex flex-col h-40 w-80 rounded-md bg-pink-300">
+    <div class="p-2">
+      <form class="flex flex-col" action="input">
+        <label class="text-sm text-gray-600" for="ini">Input your task</label>
+        <input type="text" class="p-2 rounded-md" />
+      </form>
+    </div>
+    <div class="flex items-center p-2">
+      <input class="m-2 w-10 h-8 rounded" type="checkbox" />
+      <div
+        class="flex justify-center outline outline-pink-400 items-center rounded-md w-16 h-10 text-pink-600 bg-pink-200"
+      >
+        makan
+      </div>
+    </div>
+  </div>
+  <a href="/">
+    <button class="p-2 bg-white rounded-md m-8 ml-10">
+      <img src="https://img.icons8.com/dusk/64/null/home-page.png" />
+    </button>
+  </a>
 </Layout>

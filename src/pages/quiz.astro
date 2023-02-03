@@ -2,6 +2,26 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
+<button class="m-2">00:00:00</button>
 <Layout title="Quiz">
-  <h1>Ini Quiz App</h1>
+  <div class="flex flex-col bg-white p-10 gap-2 rounded-md">
+    <h1 class="text-2xl font bold">Apa yang anda cari disini??</h1>
+    <button class="bg-purple-400 p-2 rounded-md hover:bg-yellow-400"
+      >a.hanya gabut</button
+    >
+    <button class="bg-purple-400 p-2 rounded-md hover:bg-pink-600"
+      >b.hanya ingin tahu</button
+    >
+    <button class="bg-purple-400 p-2 rounded-md hover:bg-blue-600"
+      >c.testing</button
+    >
+    <button class="bg-purple-400 p-2 rounded-md hover:bg-orange-600"
+      >d.adu skill</button
+    >
+  </div>
+  <a href="/">
+    <button class="p-2 bg-white rounded-md m-4">
+      <img src="https://img.icons8.com/dusk/64/null/home-page.png" />
+    </button>
+  </a>
 </Layout>

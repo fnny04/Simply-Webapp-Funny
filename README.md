@@ -3,6 +3,7 @@
 ```
 npm create astro@latest -- --template basics
 ```
+Open Project on https://simple-funny-webapp.netlify.app/
 
 ![tampilan](./public/tampilan.png)
 

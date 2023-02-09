@@ -16,12 +16,23 @@ const Todo = () => {
     setSelectedTodo((prev) => [...prev, todo]);
   };
 
-  const handleRemoveSelectedTodo = (index) =>
-    index > -1 &&
-    setSelectedTodo((prev) => [...prev.splice(index, 1), ...prev]);
+  const handleRemoveSelectedTodo = (index) => {
+    const clonedTask = [...todo];
+    clonedTask.splice(index, 1);
+    setSelectedTodo(clonedTask);
+    setInputTodo([...clonedTask]);
+  };
+  // index > -1 &&
+  // setSelectedTodo((prev) => [...prev.splice(index, 1), ...selectedTodo]);
 
-  const handleRemoveTodo = (index) =>
-    index > -1 && setTodo((prev) => [...prev.splice(index, 1), ...prev]);
+  const handleRemoveTodo = (index) => {
+    const clonedTask = [...todo];
+    clonedTask.splice(index, 1);
+    setTodo(clonedTask);
+    setInputTodo([...clonedTask]);
+
+    // index > -1 && setTodo((prev) => [...prev.splice(index, 1)]);
+  };
 
   const handleEditTodo = (index) => {
     setIsEdit(true);
@@ -51,7 +62,8 @@ const Todo = () => {
   };
 
   return (
-    <section className="flex items-center justify-center overflow-hidden gap-x-4">
+    <section className="flex md:flex-row flex-col gap-y-4 items-center justify-center overflow-hidden gap-x-4">
+      <span></span>
       <section className="flex flex-col w-[400px] h-[400px] items-center justify-center border-2 border-blue-400 rounded-lg pr-12">
         <div className="flex flex-col w-1/2 h-auto items-start gap-x-4">
           <form
@@ -88,7 +100,7 @@ const Todo = () => {
                 className="flex flex-col gap-x-3 gap-y-2 items-start w-full"
                 key={index}
               >
-                <h1 className="text-xl text-red-400 font-sans w-full">
+                <h1 className="md:text-xl text-l text-red-400 font-sans w-full">
                   {index + 1}. {todo.name}
                 </h1>
                 <div className="flex gap-x-4 justify-start">
@@ -125,11 +137,13 @@ const Todo = () => {
           Jumlah Todo Terpilih {selectedTodo.length}
         </span>
         {selectedTodo.map((todo, index) => (
-          <div className="flex gap-x-3 items-center" key={index}>
-            <h1 className="text-yellow-400 font-sans">{todo.name}</h1>
+          <div className="flex gap-y-2 items-center" key={index}>
+            <h1 className="text-red-400  md:text-xl text-l font-sans">
+              {index + 1}.{todo.name}
+            </h1>
             <span
-              className="text-yellow-400 font-sans font-700 text-base border-b-2"
-              onClick={() => handleRemoveSelectedTodo(index)}
+              className="p-2 m-2 font-sans font-200 text-white rounded-md cursor-pointer bg-red-400"
+              onClick={() => handleRemoveTodo(index)}
             >
               Remove
             </span>
